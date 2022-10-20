@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import {Badge} from '../badge/Badge';
 
 import './List.scss';
 
+import removeSvg from '../../assets/img/remove.svg'
 
 export const List = ({items, isRemovable, onClick }) => {
   return (
@@ -20,6 +20,7 @@ export const List = ({items, isRemovable, onClick }) => {
             )}
           </i>
           <span>{item.name}</span>
+          {isRemovable && <img className='list__remove-icon' src={removeSvg} alt='Remove icon'/>}
         </li>
       ))
       }

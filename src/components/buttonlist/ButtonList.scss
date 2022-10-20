@@ -1,6 +1,8 @@
 .add-list {
 
   &__popup {
+    top: -25px;
+    left: 10px;
     width: 240px;
     height: 150px;
     background: #FFFFFF;
@@ -8,10 +10,19 @@
     border-radius: 10px;
     padding: 18px;
     box-sizing: border-box;
+    position: relative;
 
     .button {
       width: 100%;
       margin-top: 10px;
+    }
+
+    &-close {
+      position: absolute;
+      right: -8px;
+      top: -8px;
+      cursor: pointer;
+
     }
 
     &-colors {
