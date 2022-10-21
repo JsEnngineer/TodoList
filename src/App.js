@@ -3,6 +3,7 @@ import {List} from './components/list/List';
 import {ButtonList} from './components/buttonlist/ButtonList';
 
 import DB from './assets/db.json';
+import {Tasks} from './components/tasks/Tasks';
 
 function App() {
   const [lists, setLists] = useState(
@@ -37,13 +38,20 @@ function App() {
 
       <List
         items={lists}
+        onRemove = {list => {
+          console.log(list);
+        }}
         isRemovable
       />
 
       <ButtonList onAdd={onAddList} colors={DB.colors}/>
+    </div>
+
+    <div className="todo__tasks">
+      <Tasks />
+
 
     </div>
-    <div className="todo__tasks"></div>
   </div>;
 }
 

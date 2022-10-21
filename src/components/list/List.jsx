@@ -6,7 +6,14 @@ import './List.scss';
 
 import removeSvg from '../../assets/img/remove.svg'
 
-export const List = ({items, isRemovable, onClick }) => {
+export const List = ({items, isRemovable, onClick, onRemove }) => {
+
+  const removeList = (item) => {
+    if(window.confirm('Вы действительно хотите удалить?')) {
+      onRemove(item);
+    }
+  }
+
   return (
     <ul onClick={onClick} className="list">
       {items.map((item, index)  => (
@@ -20,7 +27,13 @@ export const List = ({items, isRemovable, onClick }) => {
             )}
           </i>
           <span>{item.name}</span>
-          {isRemovable && <img className='list__remove-icon' src={removeSvg} alt='Remove icon'/>}
+          {isRemovable &&
+            <img
+              className='list__remove-icon'
+              src={removeSvg}
+              alt='Remove icon'
+              onClick={()=>removeList(item)}
+            />}
         </li>
       ))
       }
